@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trapped in a Website Adventure</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    #output {
+      margin-bottom: 20px;
+    }
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="output">
+    <p>Welcome to the Trapped in a Website Adventure!</p>
+    <p>You find yourself in a strange website. A man trapped in the website asks for your help to escape.</p>
+  </div>
+  <div id="dialogue">
+    <p id="npcDialogue">NPC: Help me get out of here!</p>
+    <div class="button-container">
+      <button class="button" onclick="respond('Sure, where are you?')">Sure, where are you?</button>
+      <button class="button" onclick="respond('Who are you?')">Who are you?</button>
+    </div>
+  </div>
+  <div id="result"></div>
+
+  <script>
+    const output = document.getElementById('output');
+    const npcDialogue = document.getElementById('npcDialogue');
+    const dialogue = document.getElementById('dialogue');
+    const result = document.getElementById('result');
+
+    function print(text) {
+      result.innerHTML = '<p>' + text + '</p>';
+    }
+
+    function respond(response) {
+      npcDialogue.textContent = 'NPC: ' + response;
+      switch (response) {
+        case 'Sure, where are you?':
+          print('NPC: I\'m on the about page.');
+          showAboutPageOptions();
+          break;
+        case 'Who are you?':
+          print('NPC: My name is John, and I got trapped here. Please help me!');
+          showIntroOptions();
+          break;
+        // Add more cases for different responses
+        default:
+          print('NPC: I don\'t understand...');
+          break;
+      }
+    }
+
+    function showAboutPageOptions() {
+      dialogue.innerHTML = `
+        <p id="npcDialogue">NPC: Help me get out of here!</p>
+        <div class="button-container">
+          <button class="button" onclick="respond('How can I help?')">How can I help?</button>
+          <button class="button" onclick="respond('I\'ll find a way to rescue you.')">I'll find a way to rescue you.</button>
+        </div>
+      `;
+    }
+
+    function showIntroOptions() {
+      dialogue.innerHTML = `
+        <p id="npcDialogue">NPC: Help me get out of here!</p>
+        <div class="button-container">
+          <button class="button" onclick="respond('Sure, where are you?')">Sure, where are you?</button>
+          <button class="button" onclick="respond('I\'ll do my best to help you, John.')">I'll do my best to help you, John.</button>
+        </div>
+      `;
+    }
+
+  </script>
+</body>
+</html>
+

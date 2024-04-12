@@ -1,0 +1,45 @@
+h1 {text-align: center;}
+h2 {text-align: center;}
+button {background-color: #6504aa;
+    border: none;
+    color: white;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 32px;
+    margin-left: auto;
+    margin-right: auto;
+}
+button:hover{
+    background-color: #833fb3;
+}
+#img {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+#img:hover {
+    opacity: 0;
+}
+#img2 {
+    position: absolute;
+    top: 22.2%;
+    left: 25%;
+}
+
+.parent {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+.center {
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+         width: 50%;}
+
+body {
+    background-image: ('../Images/blue.webp');
+    background-size: 100% 100%;
+    }
