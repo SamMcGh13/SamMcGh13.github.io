@@ -1,48 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trapped in a Website Adventure</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    #output {
-      margin-bottom: 20px;
-    }
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .button {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .button:hover {
-      background-color: #0056b3;
-    }
-  </style>
-</head>
-<body>
-  <div id="output">
-    <p>Welcome to the Trapped in a Website Adventure!</p>
-    <p>You find yourself in a strange website. A man trapped in the website asks for your help to escape.</p>
+<html>
+    <head>
+        <title>Level 2</title>
+      </head>
+    <link rel = "stylesheet" href = "level2.css" type = "text/css" />
+    <a href="../Coursework/Coursework.html"><button type="button">Return to Homepage</button></a>
+
+   
+    <h>This is a page showing all of the features that will be in other levels</h>
+<div id="output">
   </div>
   <div id="dialogue">
-    <p id="npcDialogue">NPC: Help me get out of here!</p>
+    <div class="type">
+    <p id="npcDialogue">hey you, yes you currently looking at this site can you see this?</p>
+    </div>
     <div class="button-container">
-      <button class="button" onclick="respond('Sure, where are you?')">Sure, where are you?</button>
-      <button class="button" onclick="respond('Who are you?')">Who are you?</button>
+      <button class="button" onclick="respond('Y')">Yeah, I can</button>
+      <button class="button" onclick="respond('N')">Nope, I cannot see anything</button>
     </div>
   </div>
+  
   <div id="result"></div>
 
   <script>
@@ -56,44 +33,136 @@
     }
 
     function respond(response) {
-      npcDialogue.textContent = 'NPC: ' + response;
+      npcDialogue.textContent = response;
       switch (response) {
-        case 'Sure, where are you?':
-          print('NPC: I\'m on the about page.');
-          showAboutPageOptions();
+        case 'Y':
+          showYesOptions();
           break;
-        case 'Who are you?':
-          print('NPC: My name is John, and I got trapped here. Please help me!');
-          showIntroOptions();
+        case 'N':
+          showNopeOptions();
           break;
-        // Add more cases for different responses
+        case 'Where':
+          showWhereOptions();
+          break;
+        case 'Who':
+          showWhoOptions();
+          break;
+        case 'How':
+          showHowOptions();
+          break;
+        case 'Help':
+          showTrustOptions();
+          break;
+        case 'Trust': 
+          print('Thank you, now please hit the button!');
+          showTrustOptions();
+          break;
+        case 'No Trust':
+          showNoTrustOptions();
+        case 'TrustButton':
+          showTrustButton();
+          break;
         default:
-          print('NPC: I don\'t understand...');
+          
           break;
       }
     }
 
-    function showAboutPageOptions() {
+    function showYesOptions() {
       dialogue.innerHTML = `
-        <p id="npcDialogue">NPC: Help me get out of here!</p>
+      <div class="type">
+        <p id="npcDialogue">Oh great! please help me, i am stuck in here.</p>
+      </div>
         <div class="button-container">
-          <button class="button" onclick="respond('How can I help?')">How can I help?</button>
-          <button class="button" onclick="respond('I\'ll find a way to rescue you.')">I'll find a way to rescue you.</button>
+          <button class="button" onclick="respond('Where')">Stuck in where?</button>
+          <button class="button" onclick="respond('Who')">Who are you exactly?</button>
         </div>
       `;
     }
 
-    function showIntroOptions() {
+    function showNopeOptions() {
       dialogue.innerHTML = `
-        <p id="npcDialogue">NPC: Help me get out of here!</p>
+      <div class="type">
+        <p id="npcDialogue">Haha, very funny. Can you please help me out of here?</p>
+      </div>
         <div class="button-container">
-          <button class="button" onclick="respond('Sure, where are you?')">Sure, where are you?</button>
-          <button class="button" onclick="respond('I\'ll do my best to help you, John.')">I'll do my best to help you, John.</button>
+          <button class="button" onclick="respond('Who')">Who are you?</button>
+          <button class="button" onclick="respond('Where')">Out of where?</button>
         </div>
       `;
     }
 
+    function showWhereOptions() {
+      dialogue.innerHTML = `
+      <div class="type">
+        <p id="npcDialogue">The website you ass, is it not obvious?</p>
+      </div>
+        <div class="button-container">
+          <button class="button" onclick="respond('How')">How the hell did you do that?</button>
+          <button class="button" onclick="respond('Help')">How can I help?</button>
+        </div>
+      `;
+    }
+
+    function showWhoOptions() {
+      dialogue.innerHTML = `
+      <div class="type">
+        <p id="npcDialogue">do you really care about that, all you need to know is my legs hurt.</p>
+      </div>
+        <div class="button-container">
+          <button class="button" onclick="respond('How')">How the hell did you do that?</button>
+          <button class="button" onclick="respond('Help')">How can I help?</button>
+        </div>
+      `;
+    }
+
+    function showHowOptions() {
+      dialogue.innerHTML = `
+      <div class="type">
+        <p id="npcDialogue">Do you think I would keep that a secret if I knew? I have no clue why i am stuck here but I am.</p>
+      </div>
+        <div class="button-container">
+          <button class="button" onclick="respond('Help')">Okay I can help you, what can I do?</button>
+          <button class="button" onclick="respond('Help')">How can I help?</button>
+        </div>
+      `;
+    }
+
+    function showTrustOptions() {
+      dialogue.innerHTML = `
+      <div class="type">
+        <p id="npcDialogue">You see that button right in the middle of the screen? Click it and then something should happen.</p>
+      </div>
+        <div class="button-container">
+          <button class="button" onclick="respond('TrustButton')">Okay, I trust you</button>
+          <button class="button" onclick="respond('No Trust')">Why should I trust you and hit a random button?</button>
+        </div>
+      `;
+    }
+
+    function showNoTrustOptions() {
+      dialogue.innerHTML = `
+      <div class="type">
+        <p id="npcDialogue">What other option do you have? Just do it please, I really would prefer not to be in here.</p>
+      </div>
+        <div class="button-container">
+          <button class="button" onclick="respond('TrustButton')">Fine, I guess I trust you</button>
+          <button class="button" onclick="respond('Secret')">Go to hell, i am not gonna help some random guy</button>
+        </div>
+      `;
+    }
+
+    function showTrustButton() {
+      dialogue.innerHTML = `
+      <div class="type">
+        <p id="npcDialogue">Thank you, now please hit the button!</p>
+      </div>
+        <div class="button-container">
+         <a href="../VictoryScreen/VictoryScreen.html"><button class="button endbutton">click me!!!</button></a>
+        </div>
+      `;
+    }
   </script>
-</body>
+
 </html>
 
